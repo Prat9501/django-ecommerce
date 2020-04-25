@@ -8,6 +8,7 @@ BASE_DIR = os.path.dirname(
             os.path.abspath(__file__))))
 
 SECRET_KEY = config('SECRET_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 # Application definition
 
