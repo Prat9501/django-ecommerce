@@ -12,6 +12,12 @@ import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+def images(request):
+    imgs = BGImages.objects.all()
+    context = {'context_images': imgs}
+    return render(request, 'home-page.html', context)
+
+
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         try:

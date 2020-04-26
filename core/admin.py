@@ -2,12 +2,13 @@ from django.contrib import admin
 from .models import (
     Item, OrderItem, 
     Order, Payment,
-    Coupon)
+    Coupon, BGImages)
 
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['user', 'ordered']
-# Register your models here.
+
+admin.site.register(BGImages)
 admin.site.register(Item)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem)

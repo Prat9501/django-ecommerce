@@ -16,6 +16,12 @@ LABEL_CHOICES = (
     ('D', 'danger')
 )
 
+class BGImages(models.Model):
+    image1 = models.ImageField()
+    image2 = models.ImageField()
+    image3 = models.ImageField()
+
+
 class Item(models.Model):
     title = models.CharField(max_length=50)
     price = models.FloatField()
