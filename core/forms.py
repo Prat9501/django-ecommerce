@@ -10,22 +10,29 @@ PAYMENT_OPTIONS = (
 
 
 class CheckoutForm(forms.Form):
-    street_address = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': '1234 Main St'}
-    ))
-    apartment_address = forms.CharField(
-        required=False, widget=forms.TextInput(
-            attrs={'placeholder': 'Apartment or suite'}
-        ))
-    country = CountryField(blank_label='(select country)').formfield(
+    shipping_address = forms.CharField(required=False)
+    shipping_address_2 = forms.CharField(required=False)
+    shipping_country = CountryField(blank_label='(select country)').formfield(
+        required=False,
         widget=CountrySelectWidget(
         attrs={'class': 'custom-select d-block w-100'}
     ))
-    zip_code = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control'}
+    shipping_zip_code = forms.CharField()
+
+    billing_address = forms.CharField(required=False)
+    billing_address_2 = forms.CharField(required=False)
+    billing_country = CountryField(blank_label='(select country)').formfield(
+        required=False,
+        widget=CountrySelectWidget(
+        attrs={'class': 'custom-select d-block w-100'}
     ))
+    billing_zip_code = forms.CharField()
+
     same_billing_address = forms.BooleanField(required=False)
-    save_info = forms.BooleanField(required=False)
+    set_default_shipping = forms.BooleanField(required=False)
+    use_default_shipping = forms.BooleanField(required=False)
+    set_default_billing = forms.BooleanField(required=False)
+    use_default_billing = forms.BooleanField(required=False)
     payment_option = forms.ChoiceField(
         widget=forms.RadioSelect, choices=PAYMENT_OPTIONS)
 
