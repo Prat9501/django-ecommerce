@@ -9,8 +9,14 @@ from django.utils import timezone
 from .forms import CheckoutForm, CouponForm
 from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon
 import stripe
+import random
+import string
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def create_ref_code():
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=20)) 
+
 
 def images(request):
     imgs = BGImages.objects.all()
@@ -108,6 +114,7 @@ class PaymentView(View):
 
             order.ordered = True
             order.payment = payment
+            order.ref_code = create_ref_code()
             order.save()
 
             messages.success(self.request, "Your order was successfully placed!")
