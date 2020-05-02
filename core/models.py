@@ -5,9 +5,10 @@ from django_countries.fields import CountryField
 
 
 CATEGORY_CHOICES = (
-    ('S', 'Shirt'),
-    ('SW', 'Sport Wear'),
-    ('OW', 'Outwear')
+    ('G', 'Groceries'),
+    ('C', 'Cosmetics'),
+    ('S', 'Snacks'),
+    ('B', 'Baby Care')
 )
 
 LABEL_CHOICES = (
@@ -41,7 +42,7 @@ class Item(models.Model):
     title = models.CharField(max_length=50)
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
-    category = models.CharField(choices=CATEGORY_CHOICES, default='S', max_length=2)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
     label = models.CharField(choices=LABEL_CHOICES, default='P', max_length=1)
     slug = models.SlugField(default='test_product')
     description = models.TextField()
