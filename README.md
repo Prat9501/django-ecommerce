@@ -19,7 +19,7 @@ Provides a django admin panel where items, orders, order_items, refunds can be m
 To run the project:
 - Download or fork the project
 - Create a virtual environment: `mkvirtualenv ecommerce`
-- Go to project directory install the requirements: `pip -r install requirements.txt`
+- Go to project directory install the requirements: `pip install -r requirements.txt`
 - Run `python manage.py makemigrations`
 - Run `python manage.py migrate`
 - Finally run `python manage.py runserver`
