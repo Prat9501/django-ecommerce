@@ -1,4 +1,4 @@
-![](stone-paper-scissor.gif)
+![](Ecommerce.gif)
 
 # Ecommerce Website
 
