@@ -14,3 +14,14 @@ A user can use a new billing address, or the default previously saved address fo
 Has a feature to redeem coupons. Once coupon is applied desired amount will be deducted from the checkout price.
 
 Provides a django admin panel where items, orders, order_items, refunds can be managed.
+
+
+To run the project:
+- Download or fork the project
+- Create a virtual environment: `mkvirtualenv ecommerce`
+- Go to project directory install the requirements: `pip -r install requirements.txt`
+- Run `python manage.py makemigrations`
+- Run `python manage.py migrate`
+- Finally run `python manage.py runserver`
+- Go to localhost in browser and good to go.
+- To access the django admin panel create a superuser first.
